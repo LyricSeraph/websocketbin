@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  websocketbin:
+    build: .
+    container_name: websocketbin
+    ports:
+      - "0.0.0.0:80:80"
+    restart: always
+
