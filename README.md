@@ -50,9 +50,17 @@ echo "randomize me" | websocat -n1 -b {{ protocol }}://{{ host }}/random-echo | 
 echo "data" | websocat -n1 -b {{ protocol }}://{{ host }}/random | hexdump -C
 ```
 
+## 5. /random-zero
+**Description:** For every message received, it responds with a random number of 0 (0 to 100 times the length of the input).
+
+**Example (websocat with binary output):**
+```bash
+echo "data" | websocat -n1 -b {{ protocol }}://{{ host }}/random-zero | hexdump -C
+```
+
 ---
 
-## 5. /json
+## 6. /json
 **Description:** Every JSON object received is met with a static JSON response defined in the `Response-Format` HTTP header during the initial WebSocket handshake. If a JSON array is provided in the header, the endpoint will rotate through the responses in a round-robin fashion for each received message.
 
 **Example (websocat with custom response):**
